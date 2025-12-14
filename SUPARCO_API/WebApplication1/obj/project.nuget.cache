@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bQDfo2CNq8w=",
+  "dgSpecHash": "jSpviLYiPj4=",
   "success": true,
-  "projectFilePath": "E:\\FYP\\Suparco_api\\WebApplication1\\WebApplication1.csproj",
+  "projectFilePath": "E:\\FYP\\SUPARCO_API\\WebApplication1\\WebApplication1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.3.0\\microsoft.aspnetcore.authentication.2.3.0.nupkg.sha512",

@@ -123,3 +123,4 @@ E:\FYP\Suparco_api\WebApplication1\bin\Debug\net8.0\Microsoft.Extensions.WebEnco
 E:\FYP\Suparco_api\WebApplication1\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
 E:\FYP\Suparco_api\WebApplication1\bin\Debug\net8.0\System.Security.Cryptography.Xml.dll
 E:\FYP\Suparco_api\WebApplication1\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+E:\FYP\SUPARCO_API\WebApplication1\obj\Debug\net8.0\WebApplication1.sourcelink.json
