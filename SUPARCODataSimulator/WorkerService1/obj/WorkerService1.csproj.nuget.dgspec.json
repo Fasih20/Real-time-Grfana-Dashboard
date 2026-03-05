@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\FYP\\SUPARCODataSimulator\\workerService1\\WorkerService1.csproj": {}
+    "E:\\FYP\\SUPARCODataSimulator\\WorkerService1\\WorkerService1.csproj": {}
   },
   "projects": {
-    "E:\\FYP\\SUPARCODataSimulator\\workerService1\\WorkerService1.csproj": {
+    "E:\\FYP\\SUPARCODataSimulator\\WorkerService1\\WorkerService1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\FYP\\SUPARCODataSimulator\\workerService1\\WorkerService1.csproj",
+        "projectUniqueName": "E:\\FYP\\SUPARCODataSimulator\\WorkerService1\\WorkerService1.csproj",
         "projectName": "WorkerService1",
-        "projectPath": "E:\\FYP\\SUPARCODataSimulator\\workerService1\\WorkerService1.csproj",
+        "projectPath": "E:\\FYP\\SUPARCODataSimulator\\WorkerService1\\WorkerService1.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\FYP\\SUPARCODataSimulator\\workerService1\\obj\\",
+        "outputPath": "E:\\FYP\\SUPARCODataSimulator\\WorkerService1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -50,6 +50,10 @@
             "InfluxDB.Client": {
               "target": "Package",
               "version": "[4.18.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[10.0.3, )"
             },
             "Microsoft.Extensions.Hosting": {
               "target": "Package",
