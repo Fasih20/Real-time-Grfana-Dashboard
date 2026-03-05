@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "RBK7BSg+hkg=",
+  "success": true,
+  "projectFilePath": "E:\\FYP\\VirtualPLC\\VirtualPLC.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Administrator\\.nuget\\packages\\nmodbus\\3.0.81\\nmodbus.3.0.81.nupkg.sha512"
+  ],
+  "logs": []
+}
