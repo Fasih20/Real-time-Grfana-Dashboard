@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  # 1. Time-Series Database
+  influxdb:
+    image: influxdb:2.7
+    container_name: suparco_influxdb
+    ports:
+      - "8086:8086"
+    volumes:
+      - influxdb_data:/var/lib/influxdb2
+    restart: unless-stopped
+
+  # 2. Visualization Engine
+  grafana:
+    image: grafana/grafana-oss:latest
+    container_name: suparco_grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - influxdb
+    restart: unless-stopped
+
+  # 3. Custom C# Web API (Middleware)
+  suparco-api:
+    build: 
+      context: ./SUPARCO_API/WebApplication1
+    container_name: suparco_api
+    ports:
+      - "5255:5255"
+    depends_on:
+      - influxdb
+    restart: unless-stopped
+
+  # 4. Custom C# Worker Service (Digital Twin Simulator)
+  suparco-simulator:
+    build:
+      context: ./SuparcoDataSimulator/WorkerService1
+    container_name: suparco_simulator
+    # Worker services do not need exposed ports, they just run in the background
+    depends_on:
+      - influxdb
+    restart: unless-stopped
+
+  # 5. Next.js Hybrid UI
+  frontend-dashboard:
+    build: 
+      context: ./Frontend/client-app
+    container_name: suparco_ui
+    ports:
+      - "3001:3001"
+    depends_on:
+      - suparco-api
+      - grafana
+    restart: unless-stopped
+
+# Persistent storage volumes so data is not lost on restart
+volumes:
+  influxdb_data:
+  grafana_data:
