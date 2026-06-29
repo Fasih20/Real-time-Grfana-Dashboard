@@ -14,12 +14,35 @@ var config = builder.Configuration;
 
 
 
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(config.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<UserService>();
 builder.Services.AddSingleton<JwtTokenHelper>();
 builder.Services.AddControllers();
+
+// Initialize the state with values from appsettings.json
+var alertState = new AlertConfigState();
+alertState.TankLevelThreshold = builder.Configuration.GetValue<double>("Alerting:TankLevelThreshold");
+alertState.RecipientEmails.Add(builder.Configuration.GetValue<string>("Alerting:RecipientEmail"));
+
+builder.Services.AddSingleton(alertState);
+
+builder.Services.AddHostedService<AlertMonitorService>();
+
+builder.Services.AddCors(options =>     // <--- ADD THIS
+{
+    options.AddPolicy("AllowFrontend",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:3001") // The URL of your Next.js app
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+                  .AllowCredentials();
+        });
+});
+
 // JWT configuration
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -49,6 +72,7 @@ using (var scope = app.Services.CreateScope())
     userService.SeedUsersIfEmpty();
 }
 
+app.UseCors("AllowFrontend");
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
